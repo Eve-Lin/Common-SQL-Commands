@@ -1,0 +1,24 @@
+//SQL Commands
+
+1. SELECT
+
+Syntax: SELECT column1, column2...
+FROM table_name
+
+2. SELECT (Distinct/non-duplicate values):
+
+SELECT DISTINCT column1, column2,...
+FROM table_name;
+
+SELECT COUNT (DISTINCT Country) FROM Customers; //lists the number of distinct customer countries; doesn't work in Edge & Firefox
+//For Firefox & Edge
+SELECT Count (*) AS DistinctCountries FROM (SELECT DISTINCT Country FROM Customers);
+
+3. WHERE clause is used to filter records
+
+SELECT column1, column2...
+FROM table_name
+WHERE condition;
+
+Ex. SELECT * FROM Customers
+WHERE Country = 'Mexico';
