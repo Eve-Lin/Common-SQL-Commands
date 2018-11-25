@@ -21,4 +21,71 @@ FROM table_name
 WHERE condition;
 
 Ex. SELECT * FROM Customers
-WHERE Country = 'Mexico';
+WHERE Country = 'Mexico'; //single quotes (double are also possible)
+
+SELECT * FROM Customers
+WHERE CustomerID = 1; //no quotes with numeric fields
+
+4. SQL AND, OR & NOT
+
+//AND
+SELECT * FROM Customers
+WHERE Country = 'Germany' AND City = 'Berlin';
+
+//OR
+SELECT * FROM Customers
+WHERE City = 'Berlin' OR City = 'Düsseldorf';
+
+//NOT
+SELECT * FROM Customers
+WHERE NOT Country = 'Germany';
+
+More examples:
+
+SELECT * FROM Customers
+WHERE Country = 'Germany' AND (City = 'Berlin' OR City = 'Düsseldorf');
+
+SELECT * FROM Customers
+WHERE NOT Country = 'Germany' AND NOT Country = 'Denmark';
+
+5. ORDER BY
+
+Examples:
+
+SELECT * FROM Customers
+ORDER BY Country;
+
+SELECT * FROM Customers
+ORDER BY Country DESC;
+
+SELECT * FROM Customers
+ORDER BY Country, CustomerName; //first sorts by country and then by customer name
+
+SELECT * FROM Customers
+ORDER BY Country ASC, CustomerName DESC;
+
+6. INSERT INTO
+
+INSERT INTO table_name(column1, column2, column3,...)
+VALUES (value1, value2, value3,...);
+
+//when adding values for all the columns in the table, we don't need to specify the column names in the SQL query
+
+INSERT INTO table_name
+VALUES(value1, value2, value3,...);
+
+//insert data in specified columns
+INSERT INTO Customers(CustomerName, City, Country)
+VALUES('Cardinl', 'Berlin', 'Germany');
+
+7. NULL Value
+
+Syntax:
+
+SELECT * FROM Customers
+FROM table_name
+WHERE column_name IS NULL;
+
+SELECT * FROM Customers
+FROM table_name
+WHERE column_name IS NOT NULL;
