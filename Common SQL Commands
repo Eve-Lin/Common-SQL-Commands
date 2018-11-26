@@ -89,3 +89,61 @@ WHERE column_name IS NULL;
 SELECT * FROM Customers
 FROM table_name
 WHERE column_name IS NOT NULL;
+
+
+8. UPDATE
+
+Syntax:
+
+UPDATE table_name
+SET column1 = value1, column2 = value2,...
+WHERE condition;
+
+Examples:
+
+UPDATE ContactName = 'Alfred Schmidt', City = 'Frankfurt'
+WHERE CustomerID = 1;
+
+
+9. DELETE - used to delete existing records in a table
+
+Syntax:
+
+DELETE FROM table_name WHERE condition;
+
+Examples:
+DELETE FROM Customers WHERE CustomerName = 'Alfred Futterkiste';
+
+DELETE FROM table_name; //deletes all rows in a table
+
+
+10. SELECT TOP/LIMIT/ROWNUM
+
+a) SELECT TOP //SQL Server & MS Access Syntax
+
+Syntax:
+SELECT TOP number | percent column_name(s)
+FROM table_name
+WHERE condition;
+
+Example:
+SELECT TOP 3 * FROM Customers;
+SELECT TOP 50 PERCENT * FROM Customers;
+
+b) MySQL Syntax:
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+LIMIT number;
+
+Example:
+SELECT * FROM Customers
+LIMIT 3;
+
+c) Oracle Syntax:
+SELECT column_name(s)
+FROM table_name
+WHERE ROWNUM <= number;
+
+SELECT * FROM Customers
+WHERE ROWNUM <= 3;
