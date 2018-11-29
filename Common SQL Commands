@@ -149,10 +149,55 @@ SELECT * FROM Customers
 WHERE ROWNUM <= 3;
 
 
-11. SQl JOIN
+11. SQL JOIN
 
 Example:
 
 SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
 FROM Orders
 INNER JOIN Customers ON Orders.CustomerID = Customrs.CustomerID;
+
+a) SQL INNER JOIN // Selects records that have matching values in both tables
+
+Syntax:
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2 ON table1.column_name = table2.column_name;
+
+Example:
+SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+// Join three tables
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customer.ID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+
+b)SQL LEFT JOIN  // The LEFT JOIN keyword returns all records from the left table (table1), and the matched records from the right table (table2). The result is NULL from the right side, if there is no match.
+
+Syntax:
+
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2 ON table1.column_name = table2.column_name;
+
+Example:
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+
+c) SQL RIGHT JOIN // The RIGHT JOIN keyword returns all records from the right table (table2), and matched records from the left table (table1). The result is NULL from the left side, when there is no match
+
+Syntax:
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2 ON table1.column_column_name = table2.column_name;
+
+Example:
+SELECT Orders.OrderID, Employees.LastName, EMployees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;
