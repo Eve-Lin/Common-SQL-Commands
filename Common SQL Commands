@@ -147,3 +147,12 @@ WHERE ROWNUM <= number;
 
 SELECT * FROM Customers
 WHERE ROWNUM <= 3;
+
+
+11. SQl JOIN
+
+Example:
+
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customrs.CustomerID;
